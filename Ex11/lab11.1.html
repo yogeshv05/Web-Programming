@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>
+            23BCE1624 - Welcome to my page
+        </title>
+        <script>
+            function setgreen(){
+                    document.getElementById("ccl").style.backgroundColor = "green";
+                }
+                function setred(){
+                    document.getElementById("ccl").style.backgroundColor = "red";
+                }
+            function createtable(){
+                let table = document.createElement("table"); 
+                table.border = "1";
+                table.cellPadding = "10";
+                table.cellSpacing = "0";
+                table.align="center";   
+                
+                for (let i = 0; i < 3; i++) {
+                    let row=table.insertRow(i);
+                    for (let j = 0; j <3; j++) {
+                        let cell = row.insertCell(j);
+                        cell.innerHTML = "R"+i+" C"+j;
+                    }
+                }
+
+                document.getElementById("dtable").appendChild(table);
+            }
+
+            function createt(){
+                let i =document.createElement("input");
+                i .type="text";
+                i .id="of";
+                i .style.backgroundColor="green";
+                i .onfocus=function(){
+                    i.style.backgroundColor="yellow";
+                    document.getElementById("disp").innerHTML="Greetings! The colour has changed";
+
+                }
+                i.onblur=function(){
+                    i.style.backgroundColor="green";
+                    document.getElementById("disp").innerHTML="";
+                }
+                document.getElementById("of").appendChild(i);
+            }
+
+            function change(){
+                let b =document.createElement("input");
+                b.value="Change Color";
+                b.type="button";
+                b.id="ccl";
+                b.style.backgroundColor="red";
+                b.setAttribute("onmouseover", "setgreen()");
+                b.setAttribute("onmouseout", "setred()");
+                document.getElementById("cchange").appendChild(b);
+            }
+
+            function dbfunc(){
+                let text=document.getElementById("db").value;
+                if (text){
+                    let li=document.createElement("li");
+                    li.innerText=text;
+                    document.getElementById("unordered").appendChild(li);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend> Dynamic table</legend>
+            <div id="dtable">
+
+            </div>
+            <script>
+                createtable();
+            </script>
+        </fieldset>
+        <fieldset>
+            <legend> Change colour on hover</legend>
+            <div id="cchange"></div>
+            <script>
+                change();
+            </script>
+        </fieldset>
+        <fieldset>
+            <legend> Focus </legend>
+            <div id="of">
+
+            </div>
+            <p id="disp"></p>
+            <script>
+                createt();
+            </script>
+        </fieldset>
+        <fieldset>
+            <legend>  Double Click </legend>
+            <input type="text" placeholder="Enter text here" id="db"><br>
+            <input type="button" value="Submit" ondblclick=dbfunc()>
+            <ul id="unordered"></ul>
+            <script>
+                
+            </script>
+        </fieldset>
+        <fieldset>
+            <legend> Keypress </legend>
+            <input type="text" id="key" placeholder="Enter text here"><br>
+            <input type="text" id="count" value="0">
+            <script>
+                document.getElementById("key").onkeydown=function(){
+                    document.getElementById("count").value=parseInt(document.getElementById("count").value)+1;
+                }
+            </script>
+        </fieldset>
+    </body>
+</html>

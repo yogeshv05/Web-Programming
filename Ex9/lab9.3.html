@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title> 23BCE1624 </title>
+        <script type="text/javascript">
+            function Calculate(){
+                w = parseInt(document.getElementById("a").value);
+                fh = parseInt(document.getElementById("feet").value);
+                fi = parseInt(document.getElementById("inches").value);
+                v = fh*12 + fi;
+                val = Math.round((703*w)*100/(v*v))/100;
+                document.getElementById("display").value = val;
+                s = document.getElementById("search").value;
+                if(s=="male"){
+                    if(val<17.5){
+                        alert("Anorexia");
+                    }
+                    else if(val>=17.501 && val<=20.70){
+                        alert("Underweight");
+                    }
+                    else if(val>=20.71 && val<=26.40){
+                        alert("Ideal range");
+                    }
+                    else if(val>=26.41 && val<=27.80){
+                        alert("Marginally overweight range");
+                    }
+                    else if(val>=27.81 && val<=31.10){
+                        alert("Overweight range");
+                    }
+                    else{
+                        alert("Very overweight or Obese range");
+                    }
+                }
+                else{
+                    if(val<17.5){
+                        alert("Anorexia");
+                    }
+                    else if(val>=17.51 && val<=19.10){
+                        alert("Underweight");
+                    }
+                    else if(val>=19.11 && val<=25.80){
+                        alert("Ideal range");
+                    }
+                    else if(val>=25.81 && val<=27.30){
+                        alert("Marginally overweight range");
+                    }
+                    else if(val>=25.31 && val<=32.30){
+                        alert("Overweight range");
+                    }
+                    else{
+                        alert("Very overweight or Obese range");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1" cellpadding="10" cellspacing="5" align="center">
+            <tr>
+                <th  colspan="2"> BMI Calculator 
+                    <select id="search">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <td  colspan="2">
+                    <h1> Enter Your Weight:</h1> 
+                    (in pounds) <input type="text" id="a">
+                </td>
+            </tr>
+            <tr>
+                <td  colspan="2">
+                    <h1> Enter Your Height:</h1>
+                    (feet) <input type="text" id="feet">
+                    <br><br>
+                    (inches) <input type="text" id="inches">
+                </td>
+            </tr>
+            <tr colspan="2" >
+                <td  colspan="2" align="center">
+                    <input type="button" value="Calculate" id="press" onclick="Calculate()">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <h1> YOUR <br> BMI </h1>
+                </td>
+                <td>
+                    <input type="text" id="display">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 23BCE1624 </title>
+        <style>
+            input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                appearance: none;
+                background-color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                position: relative;
+            }
+
+            input[type="checkbox"]::before {
+                content: "✔";
+                font-size: 18px;
+                color: transparent;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            input[type="checkbox"]:checked::before {
+                color: black;
+            }
+
+            td {
+                text-align: left;
+                gap: 8px;
+            }
+
+            .bcontainer {
+                display: flex;
+                justify-content: center;
+            }
+
+            body {
+                background-color: #ffffff;
+                font-size: larger;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .container {
+                width: 40%;
+                margin: auto;
+                background: #9fac91;
+                padding: 20px;
+                border-radius: 10px;
+
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            input,button {
+                outline: none;
+                border: 2px solid transparent;
+                padding: 8px;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            .subbutton {
+                width: 50%;
+                padding: 10px;
+                background-color: #aa8955;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                font-size: large;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            function submitForm(event) {
+                event.preventDefault();
+                formm = new URLSearchParams();
+
+                formm.append("name1", document.getElementById("name1").value);
+                formm.append("name2", document.getElementById("name2").value);
+                formm.append("number1", document.getElementById("number1").value);
+                formm.append("number2", document.getElementById("number2").value);
+                formm.append("mail", document.getElementById("mail").value);
+
+                products = [{ id: "apple", name: "Apple", price: 10, quantity: "applekg" },{ id: "banana", name: "Banana", price: 5, quantity: "bananakg" },{ id: "avocado", name: "Avocado", price: 7, quantity: "avocadokg" }];
+
+                products.forEach(product => {
+                    if (document.getElementById(product.id).checked) {
+                        qty = document.getElementById(product.quantity).value;
+                        formm.append(product.id, qty);
+                    }
+                });
+                window.location.href = "lab10receipt.html?" + formm.toString();
+            }
+        </script>
+    </head>
+
+    <body background-color: #ffffff; font-size: larger;>
+        <div class="container">
+            <h1>Grocery Order Form</h1>
+            <form onsubmit="submitForm(event)">
+                <b>Customer Name</b>
+                <br><br>
+                <input type="text" id="name1" style="border-radius: 50px;">&emsp;
+                <input type="text" id="name2" style="border-radius: 50px;"><br><br>
+                <b>Phone Number</b>
+                <br><br>
+                <input type="tel" id="number1" style="border-radius: 50px;">&emsp;
+                <input type="tel" id="number2" style="border-radius: 50px;"><br><br>
+                <b>Email</b>
+                <br><br>
+                <input type="email" id="mail" style="border-radius: 50px;"><br><br>
+                <hr style="background-color: black;">
+                <h3>Products</h3>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <img src="https://hbkonline.in/pub/media/catalog/product/a/p/apple_fruit_powder3.jpg"
+                                height="75" width="75" alt="Apple" style="border-radius: 50%;height: 10;width: 10;">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="apple" class="larger"> Apple
+                        </td>
+                        <td>
+                            &dollar;10
+                        </td>
+                        <td>
+                            &emsp;&emsp;
+                        </td>
+
+                        <td>
+                            &emsp;&emsp;&emsp;
+                        </td>
+                        <td>
+                            <input type="number" id="applekg" style="border-radius: 50px;width: 40px;"> kg
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://cdn.shopify.com/s/files/1/0767/4655/files/IG-FEED-0814_grande.JPG?v=1580934189"
+                                height="75" width="75" alt="Banana" style="border-radius: 50%;height: 10;width: 10;">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="banana" class="larger"> Banana
+                        </td>
+                        <td>
+                            &dollar;5
+                        </td>
+                        <td>
+                            &emsp;
+                        </td>
+                        <td>
+                            &emsp;
+                        </td>
+                        <td>
+                            <input type="number" id="bananakg" style="border-radius: 50px;width: 40px;"> kg
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <img src="https://media-cdn.oriflame.com/contentImage?externalMediaId=625b18a9-7005-4bd1-aa2e-826c02194cbf&name=avocado&inputFormat=png"
+                                height="75" width="75" alt="Avocado" style="border-radius: 50%;height: 10;width: 10;">
+                        </td>
+                        <td>
+                            <input type="checkbox" id="avocado" class="larger"> Avocado
+                        </td>
+                        <td>
+                            &dollar;7
+                        </td>
+                        <td>
+                            &emsp;
+                        </td>
+                        <td>
+                            &emsp;
+                        </td>
+                        <td>
+                            <input type="number" id="avocadokg" style="border-radius: 50px;width: 40px;"> kg
+                        </td>
+                    </tr>
+                </table>
+                <div class="bcontainer">
+                    <button type="submit" class="subbutton">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

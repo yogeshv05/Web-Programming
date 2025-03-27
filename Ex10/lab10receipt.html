@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Receipt 23BCE1624</title>
+        <script>
+            function dispreceipt() {
+                params = new URLSearchParams(window.location.search);
+
+                name = params.get("name1") + " " + params.get("name2");
+                phone = params.get("number1") + (params.get("number2") ? " " + params.get("number2") : "");
+                email = params.get("mail");
+
+                receiptElement = document.getElementById("receipt");
+                receiptElement.innerHTML = ""; 
+
+                receiptElement.insertAdjacentHTML("beforeend",
+                    "<tr>" +
+                        "<td colspan='2'><strong>Name:</strong> " + name + "</td>" +
+                        "<td><strong>Phone:</strong> " + phone + "</td>" +
+                        "<td><strong>Email:</strong> " + email + "</td>" +
+                    "</tr>"
+                );
+
+                receiptElement.insertAdjacentHTML("beforeend",
+                    "<tr>" +
+                        "<th>Product</th>" +
+                        "<th>Quantity (kg)</th>" +
+                        "<th>Price per kg</th>" +
+                        "<th>Subtotal</th>" +
+                    "</tr>"
+                );
+
+                 products = [
+                    { id: "apple", name: "Apple", price: 10 },
+                    { id: "banana", name: "Banana", price: 5 },
+                    { id: "avocado", name: "Avocado", price: 7 }
+                ];
+
+                total = 0;
+                products.forEach(function(product) {
+                     qty = params.get(product.id);
+                    if (qty && qty > 0) {
+                         cost = qty * product.price;
+                        total += cost;
+
+                        receiptElement.insertAdjacentHTML("beforeend",
+                            "<tr>" +
+                                "<td>" + product.name + "</td>" +
+                                "<td>" + qty + "</td>" +
+                                "<td>$" + product.price + "</td>" +
+                                "<td>$" + cost + "</td>" +
+                            "</tr>"
+                        );
+                    }
+                });
+
+                receiptElement.insertAdjacentHTML("beforeend",
+                    "<tr>" +
+                        "<td colspan='3' style='text-align:right;'><strong>Total:</strong></td>" +
+                        "<td><strong>$" + total + "</strong></td>" +
+                    "</tr>"
+                );
+            }
+        </script>
+    </head>
+    <body onload="dispreceipt()">
+        <div>
+            <h1 align="center">Receipt</h1>
+            <table align="center" cellspacing="5" cellpadding="10" border="1">
+                <tbody id="receipt">
+                    
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

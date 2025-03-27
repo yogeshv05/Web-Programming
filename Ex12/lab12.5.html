@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>23BCE1624</title>
+    <script>
+        function exec() {
+            a = document.getElementById("red1");
+            b = document.getElementById("blue1");
+            c = document.getElementById("green1");
+            d = document.getElementById("1");
+            d.style.zIndex = parseInt(a.value);
+            d2 = document.getElementById("2");
+            d2.style.zIndex = parseInt(b.value);
+            d3 = document.getElementById("3");
+            d3.style.zIndex = parseInt(c.value);
+        }
+
+
+    </script>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 2px solid black;
+        }
+
+        .box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.8;
+        }
+
+        .red {
+            background-color: red;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+        }
+
+        .blue {
+            background-color: blue;
+            z-index: 2;
+            top: 40px;
+            left: 40px;
+        }
+
+        .green {
+            background-color: green;
+            z-index: 3;
+            top: 60px;
+            left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box red" id="1"></div>
+        <div class="box blue" id="2"></div>
+        <div class="box green" id="3"></div>
+    </div>
+    <input type="text" id="red1">
+    <input type="text" id="blue1">
+    <input type="text" id="green1">
+    <input type="button" onclick="exec()">
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>23BCE1624</title>
+        <script>
+            window.onload = setTimeout(function(){
+                document.getElementById("title1").textContent = "Updated Title";
+                usern = document.getElementsByName("username");
+                for(i =0; i<usern.length; i++){
+                    usern[i].value = "John Doe";
+                }
+                
+                radb = document.getElementsByName("gender");
+                para = document.getElementById("alldisp");
+                para.insertAdjacentHTML("beforeend", "Selected radio button: ");
+                for (let i = 0; i < radb.length; i++) {
+                    if (radb[i].checked) {
+                        para.insertAdjacentHTML("beforeend", radb[i].value + "<br>");
+                    }
+                }
+                pcount = document.getElementsByTagName("p");
+                para.insertAdjacentHTML("beforeend","Number of 'p' tags: "+pcount.length+"<br>");
+
+                listitems = document.querySelectorAll("ul li");
+                listitems.forEach(item => {
+                    console.log("List Item:", item.textContent);
+                });
+
+                backg = document.getElementsByClassName("input-field");
+                for(i = 0; i < backg.length; i++){
+                    backg[i].style.backgroundColor = "lightblue";
+                }
+
+                pinfo = document.querySelector(".info");
+                pinfo.textContent = "This is the first info paragraph";
+
+                allpinfo = document.querySelectorAll(".info");
+                pi = document.getElementById("infot");
+                for(i=0; i<allpinfo.length; i++){
+                    pi.insertAdjacentHTML("beforeend", allpinfo[i].innerHTML +"<br>");
+                }
+                firstgen = document.querySelector("input[name='gender']");
+                if (firstgen) {
+                    firstgen.checked = true;
+                }
+
+                hobbycheck = document.querySelectorAll(".hobby");
+                h = document.getElementById("hob");
+                h.insertAdjacentHTML("beforeend", "Selected hobbies: <br>");
+                for(i = 0; i < hobbycheck.length; i++){
+                    hobbycheck[i].checked = true;
+                    h.insertAdjacentHTML("beforeend", hobbycheck[i].value + "<br>");
+                }
+            }
+        ,5000);
+        </script>
+    </head>
+    <body>
+        <h1 id="title1" align="center">Old title</h1>
+        <form>
+            <fieldset>
+                <input name="username" type="text"> <br><br>
+                <input type="radio" name="gender" value="Male"><label>Male </label>
+                <input type="radio" name="gender" value="Female"><label>Female </label>
+            </fieldset>
+            <fieldset>
+                <div class="input-field">
+                    This is a sentence inside the "input-field" class. It should change background colour.
+                </div>
+                <div class="input-field">
+                    This is another sentence inside the "input-field" class. It should change background colour.
+                </div>
+                <div class="input-field">
+                    This is a third sentence inside the "input-field" class. It should change background colour.
+                </div>
+            </fieldset>
+            <fieldset>
+                <ul>
+                    <li> option 1.1</li>
+                    <li> option 2.1</li>
+                    <li> option 3.1</li>
+                </ul>
+                <ul>
+                    <li> option 1.2</li>
+                    <li> option 2.2</li>
+                    <li> option 3.2</li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <input type="checkbox" class="hobby" value="Piano"><label>Piano</label>
+                <input type="checkbox" class="hobby" value="Drawing"><label>Drawing</label>
+                <input type="checkbox" class="hobby" value="Music"><label>Music</label>
+                <input type="checkbox" class="hobby" value="Reading"><label>Reading</label>
+            </fieldset>
+            <fieldset>
+                <p class="info">
+                    This is a sentence inside a class called "info". It should change to "This is the first info paragraph".
+                </p>
+                <p class="info">
+                    This is another sentence inside a class called "info".
+                </p>
+                <p class="info">
+                    This is a third sentence inside a class called "info".
+                </p>
+            </fieldset>
+        </form>
+        <div name="newdisplays" style="background-color:burlywood;">
+            <p id="alldisp">
+                
+            </p>
+            <p id="infot">
+
+            </p>
+            <p id="hob">
+
+            </p>
+        </div>
+        <hr>
+        <p>
+            1st paragraph. It does nothing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis facere voluptatum nisi corporis illum ipsum maiores quia adipisci voluptatem obcaecati provident quidem officia perspiciatis enim repudiandae, consectetur veniam id vero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum obcaecati corrupti possimus quae impedit molestiae architecto, incidunt a totam. Animi veritatis inventore molestiae tempora deserunt! Eum harum laborum excepturi pariatur?
+        </p>
+        <p>
+            2nd paragraph. It does nothing. Lorem, ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam repellat velit sint quidem optio nemo rem quia commodi facere vitae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos corporis nam quos nobis facilis? Recusandae dolor, tempore quos ipsum sed quibusdam provident perferendis. Maxime blanditiis, nisi expedita magni similique ad.
+
+        </p>
+        <p>
+            3rd paragraph. It does nothing.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui alias eveniet deleniti facere minima ut aut dolor excepturi architecto nemo dicta aspernatur soluta nihil quasi vel, temporibus pariatur optio exercitationem.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum consequatur reiciendis aperiam esse quis ipsa. Dolore deserunt quam tempore, ducimus autem aperiam numquam, ut quis voluptatibus mollitia ipsam eos omnis.
+        </p>
+   </body>
+</html>

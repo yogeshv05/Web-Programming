@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title> 23BCE1624 </title>
+    </head>
+    <body>
+        <fieldset>
+            <legend><font color="red"><h3>Personal details</h3> </font></legend>
+            <table cellpadding="2", border="0", cellspacing="10">
+                <tr>
+                    <td>Name</td>
+                    <td>&nbsp: <input type=text></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>&nbsp: <input type=text></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>&nbsp: <input type=text></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>&nbsp:<input type=radio id="m"><label for=male>Male</label>&nbsp:<input type=radio id="f"><label for=female>Female</label></td>
+                </tr>
+                <tr>
+                    <td>DOB</td>
+                    <td>&nbsp:<input type=date></td>
+                </tr>
+                <tr>
+                    <td>Mobile#</td>
+                    <td>&nbsp:<input type="tel"</td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend><font color = "red"><h3>Educational Qualification</h3></font></legend>
+            <table cellpadding="2" border="0" cellspacing="10">
+                <tr>
+                    <td> Degree&emsp;</td>
+                    <td>;&nbsp
+                        <select>
+                            <option>-- Select Group --</option>
+                            <optgroup label="UG">
+                                <option>BE</option>
+                                <option>BTech</option>
+                                <option>BSc</option>
+                                <option>BA</option>
+                                <option>BCA</option>
+                                <option>BBA</option>
+                                <datalist id="other">
+                                    <option value="Others">
+                                </datalist>
+                            </optgroup>
+                            <optgroup label="PG">
+                                <option>ME</option>
+                                <option>MTech</option>
+                                <option>MSc</option>
+                                <option>MA</option>
+                                <option>MCA</option>
+                                <option>MBA</option>
+                                <datalist id="other">
+                                    <option value="Others">
+                                </datalist>
+                            </optgroup>
+                            <optgroup label="PHD">
+                                <option>Engineering</option>
+                                <option>Science</option>
+                                <option>Management</option>
+                                <option>BA</option>
+                                <option>BCA</option>
+                                <option>BBA</option>
+                                <datalist id="other">
+                                    <option value="Others">
+                                </datalist>
+                            </optgroup>
+                        </select>
+                    </td>
+                    <td>
+                        Engineering :
+                    </td>
+                    <td>
+                        <input list="E">
+                        <datalist id = "E">
+                            <option value = "--Select Group--">
+                            <option value="CSE">
+                            <option value ="ECE">
+                            <option value="CIVIL">
+                            <option value="MECH">
+                        </datalist>
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+        <br>
+        <table cellpadding="2">
+            <td>
+        <label for="hobbies">Hobbies:</label>
+        <input type="checkbox" name="chess">
+        <label for="hobbies">Playing Chess</label>
+        <input type="checkbox" name="chess">
+        <label for="hobbies">Reading Books</label></td>
+        </table>
+        <table cellpadding="2">
+            <td>
+               Favorite Color: <input type="color">
+            </td>
+        </table>
+        <h3><font color="red"> Address</font></h3>
+        <textarea id="comment" name="comment" rows="10" cols="90"></textarea>
+        <br>
+        <label for="myfile">Attach Resume:</label>
+        <input type="file" value="Browse" id="myfile" name="myfile"> 
+        <input type="submit" value = "Submit">
+</html>

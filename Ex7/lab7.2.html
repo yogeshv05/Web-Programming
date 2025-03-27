@@ -1,0 +1,67 @@
+<html> 
+    <head>
+        <title> 23BCE1624 </title>
+        <link rel="stylesheet" href="lab7.2pet.css">
+    </head>
+    <body>
+        <h1 class="rainbow" align="center">--------------------Webpage for pet animals--------------------</h1> 
+        <h2 class="rainbow">Dogs</h2> 
+        <p class="desc">
+            The dog is a domesticated descendant of the wolf. Also called the domestic dog, it was selectively bred from an extinct population of wolves during the Late Pleistocene by hunter-gatherers. The dog was the first species to be domesticated by humans, over 14,000 years ago and before the development of agriculture.
+        </p>
+        <h2 class="rainbow">Parrots</h2>  
+        <p class="desc">
+            Parrots, also known as psittacines, are birds with a strong curved beak, upright stance, and clawed feet. They are classified in four families that contain roughly 410 species in 101 genera, found mostly in tropical and subtropical regions.
+        </p>
+        <h3 class="rainbow"><b>A dog playing with a ball effect</b></h3>
+        <svg width="400" height="500">
+            <style>
+                .ball{
+                    animation: ballbouncing 5s infinite ease-in-out;
+                }
+                @keyframes ballbouncing {
+                    0% {
+                        transform: translateX(-200px) translateY(100px) rotate(0deg) skewX(0deg);
+                    }
+                    25% {
+                        transform: translateX(50px) translateY(0px) rotate(45deg) skewX(10deg);
+                    }
+                    50% {
+                        transform: translateX(200px) translateY(100px) rotate(90deg) skewX(20deg);
+                    }
+                    60% {
+                        transform: translateX(300px) translateY(100px) rotate(180deg) skewX(30deg);
+                    }
+                    75% {
+                        transform: translateX(100px) translateY(50px) rotate(270deg) skewX(45deg);
+                    }
+                    100% {
+                        transform: translateX(-200px) translateY(100px) rotate(360deg) skewX(0deg);
+                    }
+                  }
+                </style>
+                <circle class="ball" cx="200" cy="100" r="40" style="fill:darkslateblue"></circle>
+        </svg> 
+    </body>
+</html>
+lab7.2pet.css
+body{
+    background-image: url("petsimage.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.desc{
+    line-height: 30pt;
+    column-count: 3;
+    column-gap: 20px;
+    column-rule-style:dashed;
+}
+
+.rainbow{
+    background-image: linear-gradient(to left, rgb(182, 0, 182), indigo, blue, green, yellow, orange, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>23BCE1624</title>
+        <script type="text/javascript">
+            const arr = [0,0,0,0,0,0,0,0,0,0];
+
+            function calc(){
+                let name = document.getElementById("n").value;
+                let a = parseInt(document.getElementById("a").value);
+                let output = document.getElementById("output"); 
+                let f = 0;
+
+                if(a == 1){
+                    for(let i = 0; i < 5; i++){
+                        if(arr[i] == 0){
+                            arr[i] = 1;
+                            output.innerHTML = "Name: " + name + "<br> Seat number: " + (i+1) + "<br> Class: First class <br>";
+                            f = 1;
+                            break;
+                        }
+                    }
+                    if(f == 0){
+                        let s = prompt("First class is full. Would you like to book in economy? (yes/no)");
+                        if(s == "yes"){
+                            for(let i = 5; i < 10; i++){
+                                if(arr[i] == 0){
+                                    arr[i] = 1;
+                                    output.innerHTML = "Name: " + name + "<br> Seat number: " + (i+1) + "<br> Class: Economy <br>";
+                                    f = 1;
+                                    break;
+                                }
+                            }
+                            if(f==0){
+                                output.innerHTML = "Sorry, economy is full too"
+                            }
+                        } else {
+                            output.innerHTML = "Tickets full";
+                        }
+                    }
+                } else {
+                    for(let i = 5; i < 10; i++){
+                        if(arr[i] == 0){
+                            arr[i] = 1;
+                            output.innerHTML = "Name: " + name + "<br> Seat number: " + (i+1) + "<br> Class: Economy <br>";
+                            f = 1;
+                            break;
+                        }
+                    }
+                    if(f == 0){
+                        output.innerHTML = "Tickets full";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label> Name </label>
+            <input type="text" id="n">
+            <br>
+            <label> Enter option (1 for First Class, 2 for Economy) </label>
+            <input type="text" id="a">
+            <br>
+            <input type="button" value="Book" onclick="calc()">
+        </form>
+        <p id="output"></p> 
+    </body>
+</html>

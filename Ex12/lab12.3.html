@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>
+        23BCE1624
+    </title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        let xarr = [];
+        let yarr = [];
+        let c = ["red", "blue", "brown", "yellow", "orange", "blue", "black", "pink"];
+        let colors = [];
+        let n = prompt("Number of data");
+        for (i = 0; i < n; i++) {
+            x = prompt("Enter x");
+            xarr[i] = x;
+            y = prompt("Enter y");
+            yarr[i] = y;
+            colors[i] = c[i];
+        }
+    </script>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        #top {
+            position: relative;
+        }
+
+        #bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #line {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #pie {
+            position: absolute;
+            top: 500px;
+            left: 0;
+        }
+
+        #donut {
+            position: absolute;
+            right: 0;
+            top: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top" style="width: 100%;">
+        <div id="bar" style="width: 50%;height: 50%;"></div>
+        <div id="line" style="width: 50%;height: 50%;"></div>
+        <div id="pie" style="width: 50%;height: 50%;"></div>
+        <div id="donut" style="width: 50%;height: 50%;"></div>
+    </div>
+
+    <script>
+        data1 = [{
+            x: xarr,
+            y: yarr,
+            type: "bar",
+            orientation: "v",
+            marker: { color: colors }
+        }];
+        dataline = [{
+            x: xarr,
+            y: yarr,
+            mode: "lines",
+            type: "scatter"
+        }];
+        pdata = [{
+            labels: xarr,
+            values: yarr,
+            type: "pie"
+        }];
+        ddata = [{
+            labels: xarr,
+            values: yarr,
+            hole: 0.4,
+            type: "pie"
+        }];
+        layout = {
+            xaxis: { title: "Countries" },
+            yaxis: { title: "Population" },
+            title: "Population"
+        }
+
+        Plotly.newPlot("bar", data1, layout);
+        Plotly.newPlot("line", dataline, layout);
+        Plotly.newPlot("pie", pdata, layout);
+        Plotly.newPlot("donut", ddata, layout);
+    </script>
+</body>
+
+</html>
